@@ -1,0 +1,38 @@
+{
+  "name": "inspected",
+  "version": "0.5.1",
+  "description": "Simple JavaScript object validation",
+  "main": "index.js",
+  "repository": "https://github.com/devdigital/inspected.git",
+  "author": "devdigital <devdigital.cloud@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel ./src --out-dir . --ignore *.test.js",
+    "watch": "babel ./src -w . --out-dir . --ignore *.test.js",
+    "test": "jest",
+    "test:watch": "jest --verbose --watchAll ",
+    "test:watch:failures": "jest --verbose --watchAll --reporters jest-silent-reporter",
+    "release": "standard-version"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".cache"
+    ],
+    "verbose": true
+  },
+  "dependencies": {
+    "assert": "1.4.1",
+    "deepmerge": "3.2.0",
+    "ramda": "0.26.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.4.3",
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3",
+    "cross-env": "5.2.0",
+    "jest": "24.7.1",
+    "jest-silent-reporter": "0.1.2",
+    "standard-version": "5.0.2"
+  }
+}
