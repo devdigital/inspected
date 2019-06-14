@@ -184,3 +184,24 @@ const userSchema = {
 validate(userSchema)({ name: 'user' }) 
 // => { isValid: true, ... }
 ```
+
+## Optional collection
+
+```javascript
+import isOptional from "inspected/schema/is-optional"
+import isArray from "inspected/schema/is-array"
+import validate from "inspected/validate"
+
+const departmentSchema = {
+  users: [[isOptional(isArray), "Users must be an array."]]
+};
+
+validate(departmentSchema)({ users: null }))
+// => { isValid: true, ... }
+
+validate(departmentSchema)({ users: [] }))
+// => { isValid: true, ... }
+
+validate(departmentSchema)({ users: {} }))
+// => { isValid: false, ... }
+```
