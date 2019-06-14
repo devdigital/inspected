@@ -26,6 +26,8 @@ jobs:
   build:
     <<: *defaults
     steps:
+      - attach_workspace:
+          at: ~/repo
       - run:
           name: Build output
           command: yarn build
