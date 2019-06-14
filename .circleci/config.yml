@@ -14,11 +14,18 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-
       - run: yarn install
       - run:
           name: Run tests
           command: yarn test
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: yarn install
+      - run:
+          name: Build output
+          command: yarn build
 
       - persist_to_workspace:
           root: ~/repo
@@ -37,15 +44,21 @@ jobs:
 
 workflows:
   version: 2
-  test-deploy:
+  build-workflow:
     jobs:
       - test:
           filters:
             tags:
               only: /.*/
-      - deploy:
+      - build:
           requires:
             - test
+          filters:
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - build
           filters:
             tags:
               only: /^v.*/
