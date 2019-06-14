@@ -22,6 +22,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run: yarn install
       - run:
           name: Build output
           command: yarn build
