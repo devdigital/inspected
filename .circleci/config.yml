@@ -28,7 +28,8 @@ jobs:
           command: yarn build
 
       - persist_to_workspace:
-          paths: /
+          root: /
+          paths: *
   deploy:
     <<: *defaults
     steps:
