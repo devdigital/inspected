@@ -28,13 +28,13 @@ jobs:
           command: yarn build
 
       - persist_to_workspace:
-          root: ~/build
+          root: ~/repo
           paths: .
   deploy:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/build
+          at: ~/repo
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
