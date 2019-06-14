@@ -1,6 +1,6 @@
 {
   "name": "inspected",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Simple JavaScript object validation",
   "main": "index.js",
   "repository": "https://github.com/devdigital/inspected.git",
