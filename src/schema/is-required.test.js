@@ -41,15 +41,19 @@ describe('isRequired', () => {
     expect(isRequired(isString)(false)).toBe(false)
   })
 
-  it('returns false for empty array', () => {
-    expect(isRequired(isArray)([])).toBe(false)
+  it('returns true for empty array', () => {
+    expect(isRequired(isArray)([])).toBe(true)
   })
 
   it('returns true for populated array', () => {
     expect(isRequired(isArray)([0])).toBe(true)
   })
 
-  it('returns false for empty object', () => {
-    expect(isRequired(isObject)({})).toBe(false)
+  it('returns true for empty object', () => {
+    expect(isRequired(isObject)({})).toBe(true)
+  })
+
+  it('returns true for populated object', () => {
+    expect(isRequired(isObject)({ foo: 'bar' })).toBe(true)
   })
 })
