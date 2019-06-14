@@ -1,4 +1,4 @@
-./.circlci
-./src
+.circleci
+src
 babel.config.js
 yarn.lock
