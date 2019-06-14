@@ -1,5 +1,6 @@
 import isNil from './is-nil'
 import isEmpty from './is-empty'
+import isString from './is-string'
 
 const isRequired = predicate => value => {
   if (!predicate) {
@@ -10,7 +11,7 @@ const isRequired = predicate => value => {
     return false
   }
 
-  if (isEmpty(value)) {
+  if (isString(value) && isEmpty(value)) {
     return false
   }
 
